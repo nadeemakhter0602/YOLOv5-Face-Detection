@@ -46,8 +46,8 @@ class Detector():
     # only works for outputs of shape (25500, 85)
     def _detect(self, outputs, image):
         image_width, image_height, _ = image.shape
-        x_factor = image_width / 640
-        y_factor =  image_height / 640
+        x_factor = image_width / self.input_shape[0]
+        y_factor =  image_height / self.input_shape[1]
         outputs = [row for row in outputs if np.amax(row[5:])>0.5 and row[4]>0.5]
         confidences = [row[4] for row in outputs]
         xywh = [(row[0], row[1], row[2], row[3]) for row in outputs]
