@@ -2,5 +2,5 @@ weights/
 events*
 train*
 val*
-*.o*
 __p*
+fa*.o*
